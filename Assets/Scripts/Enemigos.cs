@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemigos : MonoBehaviour
 {
-    public GameObject prefab;
+    public GameObject enemigoPrefab;
     public float velocidad = 1.0f;
 
     void Start()
@@ -23,13 +23,17 @@ public class Enemigos : MonoBehaviour
                 Destroy(obj);
                 Debug.Log("prefab destruido");
             }
+            
         }
     }
 
     void SpawnearPrefab()
     {
-        var position = new Vector3(Random.Range(-9.0f, 9.0f), Random.Range(-6.0f, 6.0f), 0);
-        Instantiate(prefab, position, Quaternion.identity);
+        var position = new Vector3(Random.Range(-9.0f, 9.0f), Random.Range(0f, 6.0f), 0);
+        Instantiate(enemigoPrefab, position, Quaternion.identity);
         Debug.Log("prefab instanciado");
     }
+
 }
+
+
