@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemigo : MonoBehaviour
 {
+    int destruccion = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,8 @@ public class Enemigo : MonoBehaviour
     {
         if (bala.CompareTag("Bala"))
         {
+            destruccion++;
+            FindObjectOfType<Juego>()?.EnemigoDestruido();
             Destroy(bala.gameObject);
             Destroy(gameObject);
             Debug.Log("prefab colision");
